@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Users</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-800 p-4 shadow-md">
+        <div class="flex justify-between items-center">
+            <h1 class="text-2xl font-semibold text-white">User Management</h1>
+            <div class="space-x-4">
+                <a href="/" class="text-white hover:text-gray-300">Home</a>
+                <a href="/add-user" class="text-white hover:text-gray-300">Error</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Display Users Section -->
+    <div class="flex items-center justify-center min-h-screen p-4">
+        <div class="w-full max-w-3xl p-8 bg-gray-800 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-center mb-6 text-white">User Data</h2>
+
+            <!-- Conditional Display of Users -->
+            <div class="space-y-4">
+                <% if (users.length > 0) { %>
+                    <% users.forEach(user => { %>
+                        <div class="p-4 bg-gray-700 rounded-lg flex justify-between items-center">
+                            <div class="text-white">
+                                <p><strong>Username:</strong> <%= user.username %></p>
+                                <p><strong>Name:</strong> <%= user.name %></p>
+                                <p><strong>Age:</strong> <%= user.age %></p>
+                            </div>
+                            <div class="flex space-x-4">
+                                <!-- Edit User Link -->
+                                <a href="/edit-user?username=<%= user.username %>" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">Edit</a>
+                                <a href="/delete?username=<%= user.username %>" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">Delete</a>
+                            </div>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p class="text-center text-gray-400">No users found.</p>
+                <% } %>
+            </div>
+
+            <!-- Go Back Link -->
+            <div class="flex justify-center mt-6">
+                <a href="/" class="text-blue-500 hover:underline">Go Back</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

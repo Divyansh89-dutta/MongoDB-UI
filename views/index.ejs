@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input User Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-gray-100">
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-800 p-4 shadow-lg">
+        <div class="flex justify-between items-center">
+            <h1 class="text-2xl font-semibold text-white">User Management</h1>
+            <div class="space-x-4">
+                <a href="/" class="text-white hover:text-gray-300">Home</a>
+                <a href="/display-users" class="text-white hover:text-gray-300">Display Users</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Form Section -->
+    <div class="flex items-center justify-center min-h-screen p-4">
+        <div class="w-full max-w-md p-8 space-y-6 bg-gray-800 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-center text-white">Add User</h2>
+            <form action="/add-user" method="POST" class="space-y-4">
+                <input type="text" name="username" placeholder="Username" required class="w-full p-3 border-2 border-gray-700 rounded bg-gray-900 text-white focus:outline-none focus:border-blue-500">
+                <input type="text" name="name" placeholder="Name" required class="w-full p-3 border-2 border-gray-700 rounded bg-gray-900 text-white focus:outline-none focus:border-blue-500">
+                <input type="number" name="age" placeholder="Age" required class="w-full p-3 border-2 border-gray-700 rounded bg-gray-900 text-white focus:outline-none focus:border-blue-500">
+                <button type="submit" class="w-full p-3 font-semibold text-white bg-blue-600 rounded hover:bg-blue-700 focus:outline-none">Submit</button>
+            </form>
+            <div class="flex justify-between space-x-2">
+                <a href="/display-users" class="w-full p-3 text-center font-semibold text-white bg-blue-600 rounded hover:bg-blue-700 focus:outline-none">Display Users</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
